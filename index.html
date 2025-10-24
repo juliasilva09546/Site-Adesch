@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adesch - Tecnologia Avançada</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Adesch</h1>
+            <nav class="nav">
+                <a href="#inicio" class="nav-link active">Início</a>
+                <a href="#produtos" class="nav-link">Produtos</a>
+                <a href="#contato" class="nav-link">Fale Conosco</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Conectar você a um futuro próximo!</h2>
+                <p>A Adesch é mais que uma empresa de tecnologia; somos arquitetos do futuro. Nosso foco é criar produtos inovadores com design minimalista e performance incomparável, redefinindo sua experiência digital.</p>
+                <a href="#produtos" class="btn primary-btn">Ver Produtos</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="produtos" class="products-section hidden-section">
+        <div class="container">
+            <h2>Nossos Produtos</h2>
+            <div class="product-grid">
+                <div class="product-card" data-product-id="TN-001" data-price="2499.00" data-name="NovaBook 14">
+                    <img src="img/celular - redondo.jpeg" alt="Solar Up">
+                    <h3>Solar Up</h3>
+                    <p class="price">R$ 200,00</p>
+                    <p class="description">Carregador ultrafino com velocidade de última geração</p>
+                    <button class="btn buy-btn" onclick="openPurchaseModal(this)">Comprar</button>
+                </div>
+                <div class="product-card" data-product-id="TN-002" data-price="699.00" data-name="NovaWatch Pro">
+                    <img src="img/celular - quadrado.jpeg" alt="Solar Up Square">
+                    <h3>Solar Up Square</h3>
+                    <p class="price">R$ 200,00</p>
+                    <p class="description">Carregador ultrafino com velocidade de última geração.</p>
+                    <button class="btn buy-btn" onclick="openPurchaseModal(this)">Comprar</button>
+                </div>
+                <div class="product-card" data-product-id="TN-003" data-price="99.00" data-name="NovaPods Lite">
+                    <img src="img/ipad redondo.jpeg" alt="NovaPods Lite">
+                    <h3>Enerjet round</h3>
+                    <p class="price">R$ 300,00</p>
+                    <p class="description">Carregador com ultravelocidade.</p>
+                    <button class="btn buy-btn" onclick="openPurchaseModal(this)">Comprar</button>
+                </div>
+                <div class="product-card" data-product-id="TN-004" data-price="1299.00" data-name="NovaTablet S">
+                    <img src="img/ipad quadrado.jpeg" alt="NovaTablet S">
+                    <h3>Enerjet square</h3>
+                    <p class="price">R$ 300,00</p>
+                    <p class="description">Crregador com ultravelocidade</p>
+                    <button class="btn buy-btn" onclick="openPurchaseModal(this)">Comprar</button>
+                </div>
+                <div class="product-card" data-product-id="TN-005" data-price="399.00" data-name="NovaMouse X">
+                    <img src="img/fone - redondo.jpg" alt="NovaMouse X">
+                    <h3>Power Round</h3>
+                    <p class="price">R$ 180,00</p>
+                    <p class="description">Carregador para seu dia a dia na correria.</p>
+                    <button class="btn buy-btn" onclick="openPurchaseModal(this)">Comprar</button>
+                </div>
+                <div class="product-card" data-product-id="TN-006" data-price="199.00" data-name="NovaCharge Pro">
+                    <img src="img/fone - quadrado.jpg" alt="NovaCharge Pro">
+                    <h3>Power Square</h3>
+                    <p class="price">R$ 180,00</p>
+                    <p class="description">Carregador para seu dia a dia na correria.</p>
+                    <button class="btn buy-btn" onclick="openPurchaseModal(this)">Comprar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contact-section hidden-section">
+        <div class="container">
+            <h2>Fale Conosco</h2>
+            <p>Tem dúvidas, sugestões, críticas ou elogios? Use o formulário abaixo para entrar em contato com nossa equipe.</p>
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone (opcional)</label>
+                    <input type="tel" id="telefone" name="telefone">
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Mensagem (Crítica ou Elogio)</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn primary-btn">Enviar Mensagem</button>
+                <p id="contact-message" class="message-status"></p>
+            </form>
+        </div>
+    </section>
+
+    <div id="purchase-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closePurchaseModal()">&times;</span>
+            <h3 id="modal-product-name">Comprar Produto</h3>
+            <p class="modal-price" id="modal-product-price"></p>
+
+            <form id="purchase-form" class="purchase-form">
+                <h4>Informações de Envio e Pagamento</h4>
+
+                <div class="form-group">
+                    <label for="p-nome">Nome Completo</label>
+                    <input type="text" id="p-nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="p-email">E-mail</label>
+                    <input type="email" id="p-email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="p-cep">CEP</label>
+                    <input type="text" id="p-cep" required>
+                </div>
+                <div class="form-group">
+                    <label for="p-endereco">Endereço (Rua, Número)</label>
+                    <input type="text" id="p-endereco" required>
+                </div>
+                <div class="form-group">
+                    <label for="p-cidade">Cidade/Estado</label>
+                    <input type="text" id="p-cidade" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="p-card">Número do Cartão</label>
+                    <input type="text" id="p-card" placeholder="XXXX XXXX XXXX XXXX" required>
+                </div>
+                <div class="form-group half-group">
+                    <div>
+                        <label for="p-exp">Validade</label>
+                        <input type="text" id="p-exp" placeholder="MM/AA" required>
+                    </div>
+                    <div>
+                        <label for="p-cvv">CVV</label>
+                        <input type="text" id="p-cvv" placeholder="123" required>
+                    </div>
+                </div>
+
+                <input type="hidden" id="p-product-id" name="product-id">
+                <button type="submit" class="btn primary-btn full-width">Finalizar Compra</button>
+            </form>
+
+            <div id="purchase-success" class="purchase-success hidden">
+                <i class="fas fa-check-circle success-icon"></i>
+                <h4>Pedido Realizado com Sucesso!</h4>
+                <p>Seu pedido foi processado. Você receberá um e-mail de confirmação.</p>
+                <p class="tracking-message">Rastreie seu pedido para ver onde ele está até chegar em sua casa!</p>
+                <div class="tracking-info">
+                    <strong>Código de Rastreio:</strong>
+                    <span id="tracking-code">TNX-2025-XXXXXX</span>
+                    <button class="btn secondary-btn" onclick="copyTrackingCode()">Copiar</button>
+                </div>
+                <p>Previsão de Entrega: <span id="delivery-date">5 a 10 dias úteis</span></p>
+
+                <div class="tracker">
+                    <h4>Rastreamento do Pedido</h4>
+                    <div class="tracker-steps">
+                        <div class="step active">
+                            <i class="fas fa-box"></i>
+                            <p>Pedido Recebido</p>
+                        </div>
+                        <div class="step">
+                            <i class="fas fa-warehouse"></i>
+                            <p>Em Separação</p>
+                        </div>
+                        <div class="step">
+                            <i class="fas fa-truck"></i>
+                            <p>Em Transporte</p>
+                        </div>
+                        <div class="step">
+                            <i class="fas fa-home"></i>
+                            <p>Entregue</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Adesch. Todos os direitos reservados. Design Minimalista e Inovador.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
